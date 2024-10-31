@@ -24,10 +24,10 @@ async function hasValidStorageToken() {
     return true;
 }
 
-function intercept() {
+export function intercept() {
     const text_elem = document.getElementById("token");
     if (hasValidStorageToken()) {
-        text_elem.innerText = localStorage.getItem("token");
+        text_elem.innerText = `OAuth token: ${localStorage.getItem("token")}`;
         text_elem.hidden = false;
     } else if (document.location.hash && document.location.hash !== '') {
         text_elem.innerText = "";
@@ -49,5 +49,3 @@ function intercept() {
         }
     }
 }
-
-intercept();

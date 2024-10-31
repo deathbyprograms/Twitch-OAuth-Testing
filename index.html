@@ -3,7 +3,7 @@
 
 <head>
     <title>OAuth test</title>
-    <script type="module">import { redirect } from "./oauth.js"; window.redirect = redirect;</script>
+    <script type="module">import { intercept, redirect } from "./oauth.js"; intercept(); window.redirect = redirect;</script>
 </head>
 
 <body>
