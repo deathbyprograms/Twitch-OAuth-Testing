@@ -35,12 +35,13 @@ export function intercept() {
     } else {
         const urlParams = new URLSearchParams(document.location.hash.slice(1));
         if (urlParams.get('access_token')) {
-            if (urlParams.get("state") !== sessionStorage.getItem("state")){
+            if (urlParams.get("state") !== sessionStorage.getItem("state")) {
                 text_elem.innerText = "INVALID STATE"
                 text_elem.hidden = false;
             } else {
                 text_elem.innerText = `OAuth token: ${urlParams.get('access_token')}`;
                 text_elem.hidden = false;
+                localStorage.setItem("token", urlParams.get('access_token'));
             }
             sessionStorage.removeItem("state");
         } else {
