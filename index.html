@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>OAuth test</title>
-    </head>
-    <body>
-        <button onclick="location.href = 'https://www.twitch.tv';">Press to authenticate</button>
-    </body>
+
+<head>
+    <title>OAuth test</title>
+    <script type="module">import { redirect } from "./oauth.js"; window.redirect = redirect;</script>
+</head>
+
+<body>
+    <button onclick="redirect()">Press to authenticate</button>
+    <br>
+    <h4 id="token"></h4>
+</body>
+
 </html>
